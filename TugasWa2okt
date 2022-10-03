@@ -1,0 +1,80 @@
+package filevscode;
+import java.util.Scanner;
+public class ATMsederhana {
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        System.out.print("Masukkan Nama Anda : ");
+        String nama = in.nextLine();
+        System.out.println(nama);
+        System.out.print("Masukkan Saldo Anda : ");
+        int saldo = in.nextInt();
+        
+
+        short batastransaksi = 5;
+
+        while(batastransaksi > 0){  
+           int saldosekarang = saldo;
+           System.out.println("Menu\n 1.Pengambilan Saldo\n 2. Menabung Pilih 1/2 : ");
+           int menu;
+           menu = in.nextInt();
+
+           if (menu == 1){
+           System.out.println("Anda akan melakukan penarikan tunai\nSaldo anda sekarang Rp. "+saldosekarang);
+           System.out.println("Masukkan jumlah saldo yang mau ditarik : ");
+           int penarikan = in.nextInt();
+              if (saldo - penarikan <5000){
+                  System.out.println("Sisa saldo anda minimal Rp.5.000");
+              }
+              else if (penarikan < 2000){
+                  System.out.println("Penarikan minimal Rp.2.000");
+              }
+              else {
+                 saldo = saldo-penarikan;
+                 System.out.println("saldo awal anda adalah "+saldosekarang+"\nanda melakukan penarikan sebesar "+penarikan);
+              }
+              System.out.println("Sisa saldo anda tinggal Rp."+saldo+"Sisa penarikan anda tinggal : "+(batastransaksi - 1)+"Kali");
+
+
+           }
+
+           else if (menu == 2){
+            System.out.println("Anda akan melakukan penabungan ");
+            System.out.println("Masukkan jumlah uang yang akan ditabung : ");
+            int penabungan = in.nextInt();
+                if (penabungan < 2000){
+                    System.out.print("Minimal menabung harus Rp.2.000");
+                    }
+                else {
+                    System.out.println("Saldo awal anda adalah Rp."+saldo+" Anda melakukan penabungan sebesar Rp."+penabungan);
+                    saldo = saldo+penabungan;
+                }
+                System.out.println("Jumlah tabungan anda sekarang "+saldo+" Sisa transaksi anda tinggal "+(batastransaksi-1)+"kali");
+           }
+
+           else{
+           System.out.println("MAAP PILIHAN YANG ANDA MASUKKAN SALAH");
+           } 
+           System.out.print("Apakah anda igin transaksi lagi?[yes=1/no=0]");
+           int pilihan = in.nextInt();
+
+           if (pilihan == 1){
+            System.out.print("Sisa transaksi anda masih "+(batastransaksi-1));
+            batastransaksi --;
+           }
+           else if (pilihan == 0){
+           System.out.print("oke terimakasih ");
+           batastransaksi = 0;
+           }
+           else {
+            System.out.print("pilihan tidak ada");
+            batastransaksi = 0;
+           }
+           
+           
+    }
+
+
+
+    }
+    
+}
